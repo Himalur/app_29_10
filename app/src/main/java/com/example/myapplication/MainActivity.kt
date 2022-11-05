@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.content.Intent
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -8,14 +9,17 @@ import android.widget.EditText
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.io.Serializable
+import kotlin.collections.mutableListOf
 
 class MainActivity : AppCompatActivity() {
-    private val list = mutableListOf<String>()
+    data class Items(val id: Long, val value: Int)
+    val dbHelper = DBHelper(this)
+    private val list = mutableListOf<Items>()
     private lateinit var adapter: RecyclerAdapter
     lateinit var state: State
     class State(
         var EditTextMem: String,
-        var ListMem: MutableList<String> = mutableListOf<String>(),
+        var ListMem: MutableList<Items> = mutableListOf(),
     ): Serializable
     companion object {
         const val STATE_KEY = "STATE"
@@ -46,10 +50,10 @@ class MainActivity : AppCompatActivity() {
         }, {
 
             val intent = Intent(this, SecondActivity::class.java)
-            intent.putExtra(EXTRA_KEY, list[it])
+            intent.putExtra(EXTRA_KEY, list[it].value)
             startActivity(intent)
         })
-
+        list.addAll(dbHelper.getAll())
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
@@ -58,6 +62,7 @@ class MainActivity : AppCompatActivity() {
         button.setOnClickListener {
             if(editText.text.toString().isNotEmpty()){
                 list.add(editText.text.toString())
+                val id = dbHelper.add(editText.text.toString())
                 editText.setText("")
                 adapter.notifyItemInserted(list.lastIndex)
 
