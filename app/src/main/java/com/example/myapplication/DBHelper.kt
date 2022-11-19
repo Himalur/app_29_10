@@ -5,7 +5,6 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-data class Items(val id: Long, val value: Int)
 class DBHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     // статические константы имеет смысл хранить так:
@@ -18,21 +17,28 @@ class DBHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME, nul
         const val TABLE_NAME = "valuesList"
         // названия полей
         const val KEY_ID = "id"
-        const val NUMBER_VALUE = "value"
+        const val NAME = "name"
+        const val SURNAME = "surname"
+        const val BIRTH_DATE = "birthDate"
+        const val PHONE_NUMBER = "phoneNumber"
+
     }
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL("""
             CREATE TABLE $TABLE_NAME (
                 $KEY_ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                $NUMBER_VALUE INTEGER NOT NULL
+                $NAME TEXT NOT NULL,
+                $SURNAME TEXT NOT NULL,
+                $BIRTH_DATE TEXT NOT NULL,
+                $PHONE_NUMBER TEXT NOT NULL
             )""")
     }
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         db.execSQL("DROP TABLE IF EXISTS $TABLE_NAME")
         onCreate(db)
     }
-    fun getAll(): List<Items> {
-        val result = mutableListOf<Items>()
+    fun getAll(): List<Contact> {
+        val result = mutableListOf<Contact>()
         val database = this.writableDatabase
         val cursor: Cursor = database.query(
             TABLE_NAME, null, null, null,
@@ -40,13 +46,19 @@ class DBHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME, nul
         )
         if (cursor.moveToFirst()) {
             val idIndex: Int = cursor.getColumnIndex(KEY_ID)
-            val valueIndex: Int = cursor.getColumnIndex(NUMBER_VALUE)
+            val nameIndex: Int = cursor.getColumnIndex(NAME)
+            val snameIndex: Int = cursor.getColumnIndex(SURNAME)
+            val birthDateIndex: Int = cursor.getColumnIndex(BIRTH_DATE)
+            val phoneNumberIndex: Int = cursor.getColumnIndex(PHONE_NUMBER)
             do {
-                val items = Items(
+                val contact = Contact(
                     cursor.getLong(idIndex),
-                    cursor.getInt(valueIndex)
+                    cursor.getString(nameIndex),
+                    cursor.getString(snameIndex),
+                    cursor.getString(birthDateIndex),
+                    cursor.getString(phoneNumberIndex)
                 )
-                result.add(items)
+                result.add(contact)
             } while (cursor.moveToNext())
         }
         cursor.close()
@@ -54,10 +66,13 @@ class DBHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME, nul
     }
 
 
-    fun add(title: String, isDone: Boolean = false): Long {
+    fun add(name: String, surname: String, birthDate: String, phoneNumber: String): Long {
         val database = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(NUMBER_VALUE, if (isDone) 1 else 0)
+        contentValues.put(NAME, name)
+        contentValues.put(SURNAME, surname)
+        contentValues.put(BIRTH_DATE, birthDate)
+        contentValues.put(PHONE_NUMBER, phoneNumber)
         val id = database.insert(TABLE_NAME, null, contentValues)
         close()
         return id
@@ -66,7 +81,7 @@ class DBHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME, nul
     fun update(id: Long, title: String, isDone: Boolean) {
         val database = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(NUMBER_VALUE, if (isDone) 1 else 0)
+        contentValues.put(NAME, if (isDone) 1 else 0)
         database.update(TABLE_NAME, contentValues, "$KEY_ID = ?", arrayOf(id.toString()))
         close()
     }

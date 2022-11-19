@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 
 class RecyclerAdapter(
-    private val list: List<String>,
+    private val list: MutableList<MainActivity.Items>,
     // передаём коллбек нажатия на кнопку
     private val onItemClick: (id: Int) -> Unit,
     private val onItemClick2: (id: Int) -> Unit
