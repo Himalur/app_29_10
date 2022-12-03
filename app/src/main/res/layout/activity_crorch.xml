@@ -10,80 +10,84 @@
         android:id="@+id/surnameLabel_CA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="Фамилия:"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="114dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/nameLabel_CA"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="42dp" />
 
     <EditText
         android:id="@+id/phoneNumberEditText"
         android:layout_width="220dp"
         android:layout_height="31dp"
-        android:layout_marginStart="168dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginStart="172dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/birthDateEditText" />
 
     <EditText
         android:id="@+id/surenameEditText"
         android:layout_width="261dp"
         android:layout_height="35dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
 
     <TextView
         android:id="@+id/birthDateLabel_CA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="Дата рождения:"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="146dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/surnameLabel_CA"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="42dp" />
 
     <TextView
         android:id="@+id/phoneNumberLabel_CA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="Номер телефона:"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="180dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/birthDateLabel_CA"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="42dp" />
 
     <TextView
         android:id="@+id/nameLabel_CA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:text="Имя:"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="83dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="42dp" />
 
     <EditText
         android:id="@+id/birthDateEditText"
         android:layout_width="225dp"
         android:layout_height="29dp"
-        android:layout_marginStart="164dp"
-        android:layout_marginTop="144dp"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/surenameEditText" />
 
     <EditText
         android:id="@+id/nameEditText"
         android:layout_width="297dp"
         android:layout_height="35dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="88dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/nameLabel_CA"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button

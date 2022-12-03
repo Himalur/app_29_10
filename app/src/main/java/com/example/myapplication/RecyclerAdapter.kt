@@ -39,7 +39,7 @@ class RecyclerAdapter(
         val textView: TextView = itemView.findViewById<TextView>(R.id.textView)
 
         // находим кнопку
-        val deleteButton = itemView.findViewById<TextView>(R.id.listFindButton)
+        val deleteButton = itemView.findViewById<TextView>(R.id.addButton)
         val settingsButton = itemView.findViewById<Button>(R.id.listSettingsButton)
     }
 

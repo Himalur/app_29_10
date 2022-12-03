@@ -37,12 +37,12 @@
         android:layout_height="50dp"
         android:text="Редактировать"
         android:textSize="12sp"
-        app:layout_constraintEnd_toStartOf="@+id/listFindButton"
+        app:layout_constraintEnd_toStartOf="@+id/addButton"
         app:layout_constraintStart_toEndOf="@+id/backButton"
         tools:layout_editor_absoluteY="665dp" />
 
     <Button
-        android:id="@+id/listFindButton"
+        android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:backgroundTint="@color/red_1"
