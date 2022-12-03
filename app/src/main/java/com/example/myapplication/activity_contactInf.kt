@@ -2,14 +2,15 @@ package com.example.myapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.EditText
 import android.widget.TextView
 
-class SecondActivity : AppCompatActivity() {
+class activity_contactinf : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_second)
+        setContentView(R.layout.activity_contactinf)
 
-        val textView = findViewById<TextView>(R.id.textView2)
-        textView.text = intent.getStringExtra(MainActivity.EXTRA_KEY)
+
+        val extraID = intent.getStringExtra(MainActivity.EXTRA_KEY)
     }
 }

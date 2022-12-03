@@ -1,20 +1,18 @@
 package com.example.myapplication
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 
 
 class RecyclerAdapter(
-    private val list: MutableList<MainActivity.Items>,
+    private val list: MutableList<Contact>,
     // передаём коллбек нажатия на кнопку
-    private val onItemClick: (id: Int) -> Unit,
-    private val onItemClick2: (id: Int) -> Unit
+    private val deleteClick: (id: Int) -> Unit,
+    private val settingsClick: (id: Int) -> Unit
 ) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context)
@@ -23,13 +21,13 @@ class RecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textView.text = list[position]
+        holder.textView.text = list[position].surname + list[position].name
         // обработчик нажатия кнопки
-        holder.buttonAdd.setOnClickListener {
-            onItemClick(holder.adapterPosition)
+        holder.deleteButton.setOnClickListener {
+            deleteClick(holder.adapterPosition)
         }
-        holder.buttonAdd2.setOnClickListener {
-            onItemClick2(holder.adapterPosition)
+        holder.settingsButton.setOnClickListener {
+            settingsClick(holder.adapterPosition)
         }
     }
 
@@ -41,8 +39,8 @@ class RecyclerAdapter(
         val textView: TextView = itemView.findViewById<TextView>(R.id.textView)
 
         // находим кнопку
-        val buttonAdd = itemView.findViewById<TextView>(R.id.button)
-        val buttonAdd2 = itemView.findViewById<Button>(R.id.button2)
+        val deleteButton = itemView.findViewById<TextView>(R.id.listFindButton)
+        val settingsButton = itemView.findViewById<Button>(R.id.listSettingsButton)
     }
 
 }

@@ -23,6 +23,7 @@ class DBHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME, nul
         const val PHONE_NUMBER = "phoneNumber"
 
     }
+
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL("""
             CREATE TABLE $TABLE_NAME (
@@ -78,10 +79,13 @@ class DBHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME, nul
         return id
     }
 
-    fun update(id: Long, title: String, isDone: Boolean) {
+    fun update(id: Long, name: String, surname: String, birthDate: String, phoneNumber: String) {
         val database = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(NAME, if (isDone) 1 else 0)
+        contentValues.put(NAME, name)
+        contentValues.put(SURNAME, surname)
+        contentValues.put(BIRTH_DATE, birthDate)
+        contentValues.put(PHONE_NUMBER, phoneNumber)
         database.update(TABLE_NAME, contentValues, "$KEY_ID = ?", arrayOf(id.toString()))
         close()
     }
