@@ -13,14 +13,14 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".activity_contactinf"
+            android:name=".ContactInfActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activity_CreateOrChange"
+            android:name=".CreateOrChangeActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

@@ -20,6 +20,12 @@ class RecyclerAdapter(
         return ViewHolder(itemView)
     }
 
+    fun updateList(newList: MutableList<Contact>) {
+        list.clear()
+        list.addAll(newList)
+        this.notifyDataSetChanged()
+    }
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.textView.text = list[position].surname + list[position].name
         // обработчик нажатия кнопки
@@ -39,7 +45,7 @@ class RecyclerAdapter(
         val textView: TextView = itemView.findViewById<TextView>(R.id.textView)
 
         // находим кнопку
-        val deleteButton = itemView.findViewById<TextView>(R.id.addButton)
+        val deleteButton = itemView.findViewById<TextView>(R.id.deleteButton)
         val settingsButton = itemView.findViewById<Button>(R.id.listSettingsButton)
     }
 

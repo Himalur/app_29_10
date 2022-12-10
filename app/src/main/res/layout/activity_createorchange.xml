@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible"
+    tools:context=".CreateOrChangeActivity">
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:text="Отмена"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="160dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="60dp"
+        android:text="Сохранить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cancelButton"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/phoneNumberEditText"
+        android:layout_width="237dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/phoneNumberLabel_CA"
+        app:layout_constraintTop_toBottomOf="@+id/birthDateEditText" />
+
+    <EditText
+        android:id="@+id/surnameEditText"
+        android:layout_width="310dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="13dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/surnameLabel_CA"
+        app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
+
+    <EditText
+        android:id="@+id/birthDateEditText"
+        android:layout_width="247dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toEndOf="@+id/birthDateLabel_CA"
+        app:layout_constraintTop_toBottomOf="@+id/surnameEditText" />
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="329dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="69dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/nameLabel_CA"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/surnameLabel_CA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="44dp"
+        android:text="Фамилия:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameLabel_CA"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/birthDateLabel_CA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:text="Дата рождения:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/surnameLabel_CA"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/phoneNumberLabel_CA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
+        android:text="Номер телефона:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/birthDateLabel_CA"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/nameLabel_CA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="92dp"
+        android:text="Имя:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>

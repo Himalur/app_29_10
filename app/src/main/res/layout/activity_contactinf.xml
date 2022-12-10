@@ -4,99 +4,124 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_changing">
+    tools:context=".ContactInfActivity">
 
     <TextView
-        android:id="@+id/nameText3"
+        android:id="@+id/birthDateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="12dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="158dp"
-        tools:layout_editor_absoluteY="146dp" />
+        app:layout_constraintStart_toEndOf="@+id/birthDateLabel"
+        app:layout_constraintTop_toBottomOf="@+id/surnameText" />
 
     <TextView
-        android:id="@+id/nameText4"
+        android:id="@+id/phoneNumberText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="180dp" />
+        app:layout_constraintStart_toEndOf="@+id/phoneNumberLabel"
+        app:layout_constraintTop_toBottomOf="@+id/birthDateText" />
 
     <Button
         android:id="@+id/backButton"
         android:layout_width="107dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="16dp"
         android:text="Назад"
         android:textSize="12sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="665dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/changeButton"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/changeButton"
         android:layout_width="156dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
         android:text="Редактировать"
         android:textSize="12sp"
-        app:layout_constraintEnd_toStartOf="@+id/addButton"
-        app:layout_constraintStart_toEndOf="@+id/backButton"
-        tools:layout_editor_absoluteY="665dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/deleteButton"
+        app:layout_constraintStart_toEndOf="@+id/backButton" />
 
     <Button
-        android:id="@+id/addButton"
+        android:id="@+id/deleteButton"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="3dp"
         android:backgroundTint="@color/red_1"
         android:text="удалить"
         android:textSize="12sp"
-        tools:layout_editor_absoluteX="298dp"
-        tools:layout_editor_absoluteY="665dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/changeButton" />
 
     <TextView
         android:id="@+id/nameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="83dp"
         android:text="Имя:"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="83dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/surnameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="12dp"
         android:text="Фамилия:"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="114dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameLabel" />
 
     <TextView
         android:id="@+id/birthDateLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="13dp"
         android:text="Дата рождения:"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="146dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/surnameLabel" />
 
     <TextView
         android:id="@+id/phoneNumberLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="15dp"
         android:text="Номер телефона:"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="180dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/birthDateLabel" />
 
     <TextView
         android:id="@+id/nameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="83dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="82dp"
-        tools:layout_editor_absoluteY="83dp" />
+        app:layout_constraintStart_toEndOf="@+id/nameLabel"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/surenameText"
+        android:id="@+id/surnameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="12dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="116dp"
-        tools:layout_editor_absoluteY="114dp" />
+        app:layout_constraintStart_toEndOf="@+id/surnameLabel"
+        app:layout_constraintTop_toBottomOf="@+id/nameText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

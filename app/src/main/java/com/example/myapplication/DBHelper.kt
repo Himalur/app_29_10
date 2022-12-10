@@ -65,7 +65,30 @@ class DBHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME, nul
         cursor.close()
         return result
     }
-
+    fun getById(id: Long): Contact? {
+        var result: Contact? = null
+        val database = this.writableDatabase
+        val cursor: Cursor = database.query(
+            TABLE_NAME, null, "$KEY_ID = ?", arrayOf(id.toString()),
+            null, null, null
+        )
+        if (cursor.moveToFirst()) {
+            val idIndex: Int = cursor.getColumnIndex(KEY_ID)
+            val nameIndex: Int = cursor.getColumnIndex(NAME)
+            val surnameIndex: Int = cursor.getColumnIndex(SURNAME)
+            val birthDateIndex: Int = cursor.getColumnIndex(BIRTH_DATE)
+            val phoneNumberIndex: Int = cursor.getColumnIndex(PHONE_NUMBER)
+            result = Contact(
+                cursor.getLong(idIndex),
+                cursor.getString(nameIndex),
+                cursor.getString(surnameIndex),
+                cursor.getString(birthDateIndex),
+                cursor.getString(birthDateIndex)
+            )
+        }
+        cursor.close()
+        return result
+    }
 
     fun add(name: String, surname: String, birthDate: String, phoneNumber: String): Long {
         val database = this.writableDatabase
